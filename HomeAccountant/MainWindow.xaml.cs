@@ -24,13 +24,10 @@ namespace HomeAccountant
         public MainWindow()
         {
             InitializeComponent();
-            SetupApp();
         }
 
         private void SetupApp()
         {
-            List<Type> domainTypes = new List<Type>();
-            NHibernateHelper.LoadNHibernateCfg(domainTypes);
         }
     }
 }

@@ -7,7 +7,7 @@
     <id name="Id">
       <generator class="guid" />
     </id>
-    <property name="UserName" />
+    <property name="UserName" unique-key="UserName" />
   </class>
 
 </hibernate-mapping>

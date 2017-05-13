@@ -42,7 +42,7 @@ namespace HomeAccountant
                 Debug.WriteLine($"type: {type}");
                 cfg.AddAssembly(type.Assembly);
             }
-            new SchemaExport(cfg).Execute(true, true, false);
+            new SchemaUpdate(cfg).Execute(true, true);
         }
     }
 }

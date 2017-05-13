@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using HomeAccountant.Model.Domain;
 
 namespace HomeAccountant
 {
@@ -23,13 +25,16 @@ namespace HomeAccountant
     {
         public MainWindow()
         {
-            InitializeComponent();
             SetupApp();
+            InitializeComponent();
         }
 
         private void SetupApp()
         {
+            AppDomain.CurrentDomain.SetData("DataDirectory", Directory.GetCurrentDirectory() + "\\Data");
+
             List<Type> domainTypes = new List<Type>();
+            domainTypes.Add(typeof(UserData));
             NHibernateHelper.LoadNHibernateCfg(domainTypes);
         }
     }

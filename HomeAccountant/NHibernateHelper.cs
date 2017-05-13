@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -38,9 +39,10 @@ namespace HomeAccountant
             cfg.Configure();
             foreach (var type in domainTypes)
             {
+                Debug.WriteLine($"type: {type}");
                 cfg.AddAssembly(type.Assembly);
             }
-            new SchemaUpdate(cfg).Execute(true, true);
+            new SchemaExport(cfg).Execute(true, true, false);
         }
     }
 }

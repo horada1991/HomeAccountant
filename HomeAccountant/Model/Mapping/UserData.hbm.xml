@@ -8,6 +8,7 @@
       <generator class="guid" />
     </id>
     <property name="UserName" unique-key="UserName" />
+    <!--<one-to-one name="Account" class="Account" />-->
   </class>
 
 </hibernate-mapping>

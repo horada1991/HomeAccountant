@@ -10,5 +10,6 @@ namespace HomeAccountant.Model.Domain
     {
         public virtual Guid Id { get; set; }
         public virtual string UserName { get; set; }
+        public virtual Account Account { get; set; }
     }
 }

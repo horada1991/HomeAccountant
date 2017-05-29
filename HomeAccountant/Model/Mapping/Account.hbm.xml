@@ -8,6 +8,8 @@
       <generator class="guid" />
     </id>
     <property name="AvailableFunds"/>
+  
+    <one-to-one name="UserData" class="UserData"/>
   </class>
 
 </hibernate-mapping>

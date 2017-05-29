@@ -35,7 +35,6 @@ namespace HomeAccountant
 
             List<Type> domainTypes = new List<Type>();
             domainTypes.Add(typeof(UserData));
-            domainTypes.Add(typeof(Account));
             NHibernateHelper.LoadNHibernateCfg(domainTypes);
         }
     }

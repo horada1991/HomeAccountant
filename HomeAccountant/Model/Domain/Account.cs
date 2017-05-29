@@ -9,6 +9,6 @@ namespace HomeAccountant.Model.Domain
     class Account
     {
         public virtual Guid Id { get; set; }
-        public virtual int AvailableFunds { get; set; }
+        public virtual decimal AvailableFunds { get; set; }
     }
 }

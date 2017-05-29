@@ -96,6 +96,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\Domain\Account.cs" />
+    <Compile Include="Model\Domain\SavingsType.cs" />
     <Compile Include="Model\Domain\UserData.cs" />
     <Compile Include="NHibernateHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -152,6 +153,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>HomeAccountant.mdf</DependentUpon>
     </Content>
+    <EmbeddedResource Include="Model\Mapping\SavingsType.hbm.xml" />
     <EmbeddedResource Include="Model\Mapping\Account.hbm.xml" />
     <EmbeddedResource Include="Model\Mapping\UserData.hbm.xml">
       <SubType>Designer</SubType>

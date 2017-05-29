@@ -15,6 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using HomeAccountant.Model.Domain;
+using HomeAccountant.Model;
 
 namespace HomeAccountant
 {
@@ -23,9 +24,13 @@ namespace HomeAccountant
     /// </summary>
     public partial class MainWindow : Window
     {
+        public SessionStorage Session { get; set; }
+        public LogInWindow LogInWindow { get; set; }
+
         public MainWindow()
         {
             SetupApp();
+            CheckLogInStatus();
             InitializeComponent();
         }
 
@@ -36,6 +41,18 @@ namespace HomeAccountant
             List<Type> domainTypes = new List<Type>();
             domainTypes.Add(typeof(UserData));
             NHibernateHelper.LoadNHibernateCfg(domainTypes);
+
+            Session = new SessionStorage();
+            LogInWindow = new LogInWindow();
+        }
+
+        private void CheckLogInStatus()
+        {
+            if (Session.LoggedInUser == null)
+            {
+                LogInWindow.Show();
+                this.Close();
+            }
         }
     }
 }

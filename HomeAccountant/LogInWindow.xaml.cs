@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using HomeAccountant.Repository;
+using HomeAccountant.Model.Domain;
 
 namespace HomeAccountant
 {
@@ -19,14 +21,23 @@ namespace HomeAccountant
     /// </summary>
     public partial class LogInWindow : Window
     {
+        public UserDataRepository UserRepository { get; set; }
+
         public LogInWindow()
         {
+            SetUp();
             InitializeComponent();
+        }
+
+        private void SetUp()
+        {
+            UserRepository = new UserDataRepository();
         }
 
         private void LogInBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            UserData user = UserRepository.GetByUserName(UserNameTB.Text);
+            if (user.UserName == null) ErrorMessageLabel.Content = "Not Registered UserName";
         }
     }
 }

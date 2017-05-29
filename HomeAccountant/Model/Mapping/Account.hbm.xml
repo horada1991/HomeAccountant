@@ -10,6 +10,11 @@
     <property name="AvailableFunds"/>
   
     <one-to-one name="UserData" class="UserData"/>
+
+    <set name="SavingsTypes" table="Account_SavingsType" cascade="all">
+      <key column="AccountId" />
+      <many-to-many column="SavingsTypesId" unique="true" class="SavingsType" />
+    </set>
   </class>
 
 </hibernate-mapping>

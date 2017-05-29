@@ -10,5 +10,12 @@ namespace HomeAccountant.Model.Domain
     {
         public virtual Guid Id { get; set; }
         public virtual decimal AvailableFunds { get; set; }
+        public ISet<SavingsType> savingsTypes = new HashSet<SavingsType>();
+
+        public ISet<SavingsType> SavingsTypes
+        {
+            get { return savingsTypes; }
+            set { savingsTypes = value; }
+        }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HomeAccountant.Model.Domain
 {
-    class UserData
+    class User
     {
         public virtual Guid Id { get; set; }
         public virtual string UserName { get; set; }

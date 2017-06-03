@@ -31,11 +31,15 @@ namespace HomeAccountant
 
         private void SetupApp()
         {
+            #region DatabaseConnection
+            /* 
             AppDomain.CurrentDomain.SetData("DataDirectory", Directory.GetCurrentDirectory() + "\\Data");
 
             List<Type> domainTypes = new List<Type>();
             domainTypes.Add(typeof(UserData));
             NHibernateHelper.LoadNHibernateCfg(domainTypes);
+            */
+            #endregion
         }
     }
 }

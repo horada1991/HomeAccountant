@@ -89,13 +89,15 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="DAO\IUserDao.cs" />
+    <Compile Include="DAO\Implemenation\UserDaoFile.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\Domain\UserData.cs" />
+    <Compile Include="Model\Domain\User.cs" />
     <Compile Include="NHibernateHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

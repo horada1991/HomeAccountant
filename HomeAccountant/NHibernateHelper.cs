@@ -37,11 +37,6 @@ namespace HomeAccountant
         {
             var cfg = new Configuration();
             cfg.Configure();
-            foreach (var type in domainTypes)
-            {
-                Debug.WriteLine($"type: {type}");
-                cfg.AddAssembly(type.Assembly);
-            }
             new SchemaUpdate(cfg).Execute(true, true);
         }
     }

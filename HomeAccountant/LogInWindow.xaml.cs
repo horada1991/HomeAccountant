@@ -37,7 +37,12 @@ namespace HomeAccountant
         private void LogInBtn_Click(object sender, RoutedEventArgs e)
         {
             UserData user = UserRepository.GetByUserName(UserNameTB.Text);
-            if (user.UserName == null) ErrorMessageLabel.Content = "Not Registered UserName";
+            if (user == null) ErrorMessageLabel.Content = "Not Registered UserName";
+        }
+
+        private void RegistrationBtn_Click(object sender, RoutedEventArgs e)
+        {
+            UserRepository.SaveNewUser(UserNameTB.Text);
         }
     }
 }

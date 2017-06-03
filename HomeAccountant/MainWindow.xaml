@@ -7,6 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        
+        <Label x:Name="TestLoggedInUserLabel" Content="" HorizontalAlignment="Left" Margin="40,59,0,0" VerticalAlignment="Top" Height="177" Width="431" RenderTransformOrigin="0.496,0.513" FontSize="24"/>
+
     </Grid>
 </Window>

@@ -8,11 +8,13 @@ using HomeAccountant.Model.Domain;
 using log4net.Repository.Hierarchy;
 using NHibernate;
 using Microsoft.Extensions.Logging;
+using NHibernate.Exceptions;
 
 namespace HomeAccountant.Repository
 {
     public class UserDataRepository
     {
+        #region Get one user by username
         public UserData GetByUserName(string userName)
         {
             using (ISession session = NHibernateHelper.OpenSession())
@@ -25,7 +27,9 @@ namespace HomeAccountant.Repository
                 return result;
             }
         }
+        #endregion
 
+        #region Gett all user from userData table
         public List<UserData> GetAllUser()
         {
             using (ISession session = NHibernateHelper.OpenSession())
@@ -36,7 +40,9 @@ namespace HomeAccountant.Repository
                 return result;
             }
         }
+        #endregion
 
+        #region Save New User
         public UserData SaveNewUser(string userName)
         {
             using (ISession session = NHibernateHelper.OpenSession())
@@ -46,10 +52,19 @@ namespace HomeAccountant.Repository
                     Trace.TraceInformation($"----------- SaveNewUser -- Saving new user with username: {userName} ------------");
                     UserData newUser = new UserData() { UserName = userName };
                     session.Save(newUser);
-                    transaction.Commit();
+                    try
+                    {
+                        transaction.Commit();
+                    }
+                    catch (GenericADOException e)
+                    {
+                        Trace.TraceError(e.Message);
+                        throw;
+                    }
                     return newUser;
                 }
             }
         }
+        #endregion
     }
 }

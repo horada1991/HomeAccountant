@@ -42,7 +42,7 @@ namespace HomeAccountant
             domainTypes.Add(typeof(UserData));
             NHibernateHelper.LoadNHibernateCfg(domainTypes);
 
-            Session = new SessionStorage();
+            Session = SessionStorage.Instance;
             LogInWindow = new LogInWindow();
         }
 
@@ -51,8 +51,14 @@ namespace HomeAccountant
             if (Session.LoggedInUser == null)
             {
                 LogInWindow.Show();
-                this.Close();
+                this.Hide();
             }
+        }
+
+        protected override void OnContentRendered(EventArgs e)
+        {
+            TestLoggedInUserLabel.Content = Session.LoggedInUser.ToString();
+            base.OnContentRendered(e);
         }
     }
 }
